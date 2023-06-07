@@ -1,0 +1,53 @@
+body ::-webkit-scrollbar
+{
+  display: fixed;
+}
+.top
+{
+    overflow:hidden;
+    background-color:#3fbbc0;
+    padding:30px;
+}
+.head1
+{
+    font-size:25px;
+    font-weight:600;
+    color: white;
+}
+.head2{
+    font-size:25px;
+    font-weight:600;
+    color: white;
+}
+ .head-right{
+    float:right;
+} 
+
+
+
+.nav-item a{
+font-weight:700;
+font-size:30px;
+}
+.nav-item a:hover{
+border-radius:20px;
+background-color:#3fbbc0;
+
+color:white;
+
+}
+.nav-item-w a{
+font-weight:700;
+font-size:30px;
+
+}
+.nav-item-w a:hover{
+border-radius:20px;
+background-color:red;
+
+color:white;
+
+}
+.dropdown-menu dropdown-item a:hover{
+background-color:#3fbbc0;
+}

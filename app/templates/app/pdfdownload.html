@@ -1,0 +1,90 @@
+{% load static %}
+{% comment %} {% block title %}dr_login{% endblock title %} {% endcomment %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<style>
+    table
+    {
+        width : 600px;
+        height : 200px;
+        text-align : center;
+        font-weight : bold;
+    }
+</style>
+<body>
+   
+    <div id="invoice">
+    <center>
+        <h1 style="color:red; padding-top:50px" >E-prescription</h1> <br><br>
+    <table border="2">
+        {% if key8 %}
+        
+        <tr>
+            <th style="color:red">Title</th>
+            <th style="color:red">Details</th>
+    
+
+          
+       
+        </tr>
+        <tr>
+            <td>Id</td>
+          <td>{{ key8.id }}</td>
+        </tr>
+        
+        <tr>
+            <td>Name</td>
+          <td>{{ key8.Name }}</td>
+        </tr>
+
+
+        <tr>   
+            <td>Medicine</td>
+            <td>{{ key8.Medicine }}</td> 
+          </tr>
+
+          <tr>   
+            <td>Date</td>
+            <td>{{ key8.Date }}</td> 
+          </tr>
+
+       
+
+          
+          {% endif %}
+        </table> 
+      </div>
+    
+  <br><br>
+  <center>
+    <td><button class="btn btn-primary" id="download"> download pdf</button></td>
+  </center>
+</body>
+<script>
+    window.onload = function () {
+        document.getElementById("download")
+            .addEventListener("click", () => {
+                const invoice = this.document.getElementById("invoice");
+                console.log(invoice);
+                console.log(window);
+                var opt = {
+                    margin: 1,
+                    filename: 'E-Prescription.pdf',
+                    image: { type: 'jpg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                html2pdf().from(invoice).set(opt).save();
+            })
+    }
+</script>   
+</html>
+{% endblock body %}

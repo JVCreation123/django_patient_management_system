@@ -1,0 +1,288 @@
+{%load static%}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astha Clinic</title>
+{% comment %}      
+    <style>
+        body ::-webkit-scrollbar {
+            display: fixed;
+        }
+
+        .top {
+            overflow: hidden;
+            background-color: #3fbbc0;
+            padding: 30px;
+        }
+
+        .head1 {
+            font-size: 25px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .head2 {
+            font-size: 25px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .head-right {
+            float: right;
+        }
+
+        .nav-item:hover {
+                {
+                % comment %
+            }
+
+            background-color:#3fbbc0;
+
+                {
+                % endcomment %
+            }
+        }
+
+        .nav-item a {
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .nav-item a:hover {
+            border-radius: 20px;
+            background-color: #3fbbc0;
+
+            color: white;
+
+        }
+
+        .nav-item-w a {
+            font-weight: 700;
+            font-size: 30px;
+
+        }
+
+        .nav-item-w a:hover {
+            border-radius: 20px;
+            background-color: red;
+
+            color: white;
+
+        }
+
+        .dropdown-menu dropdown-item a: hover {
+            background-color: #3fbbc0;
+        }
+
+        body {
+            background: #3fbbc0 !important;
+            font-family: 'Muli', sans-serif;
+        }
+
+        h1 {
+            color: #fff;
+            padding-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        a {
+            color: #333;
+        }
+
+        a:hover {
+            color: #E8D426;
+            text-decoration: none;
+        }
+
+        .form-control:focus {
+            color: #000;
+            background-color: #fff;
+            border: 2px solid #E8D426;
+            outline: 0;
+            box-shadow: none;
+        }
+
+        .btn {
+            background: #28a745;
+            border: #E8D426;
+        }
+
+        .btn:hover {
+            background: #28a745;
+            border: #E8D426;
+        }
+
+        .my-custom-scrollbar {
+            position: relative;
+            height: 200px;
+            overflow: auto;
+            }
+            .table-wrapper-scroll-y {
+            display: block;
+            }
+            tbody{
+                max-height: 10vh;
+                overflow: auto;
+                }
+    </style> {% endcomment %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/Ad_editpage.css">
+
+</head>
+
+<body>
+
+
+
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            {% comment %} <a href="index.html" class="navbar-brand" style="max-height: 70px; max-width:70px; "><img
+                    src="{% static '/logo2.jpg' %}"></a> {% endcomment %}
+            <img src="{% static '/logo2.jpg' %}" class="img-fluid" style="height:70px; width:70px; margin-left:50px;"
+                alt="...">
+            {% comment %} <a href="index.html" class="navbar-brand">JVcreation</a> {% endcomment %}
+            {% comment %} <a class="navbar-brand" href="#">Navbar</a> {% endcomment %}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding:12px 100px 12px 100px; margin:0 40px 0 40px;  font-size:25px;
+          font-weight: 550;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../">Logout</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left:40px;">
+                          Database
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="emailot" target="_blank">Patient Data</a></li>
+                          <li><a class="dropdown-item" href="member" target="_blank">Member's Data</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="appoint" target="_blank">Appointment Data</a></li>
+                          <li><a class="dropdown-item" href="pay" target="_blank">Payment Data</a></li>
+
+                        </ul>
+                      </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    </header>
+
+
+
+
+
+
+    <div class="pt-5" style="font-size:24px; font-weight:600; ">
+        <h1 class="text-center"> Announcement Form </h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mx-auto">
+                    <div class="card card-body" style=" box-shadow:2px 5px 15px 2px; ">
+                        <form id="submitForm" onsubmit="return valid()" action="{% url 'indexdd' %}" method="post" data-parsley-validate=""
+                            data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1">
+                            {% csrf_token %}
+
+                            <input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
+                            <div class="form-group required">
+                                <lSabel for="username"> Enter your Name : </lSabel>
+                                <input type="text" class="form-control text-lowercase" id="username" 
+                                    name="username" value="" style="background:lightgrey;" >
+                            </div>
+                            <div class="form-group required">
+                                <lSabel for="username"> Enter your Email : </lSabel>
+                                <input type="email" class="form-control text-lowercase" id="email" 
+                                    name="email" value="" style="background:lightgrey;" >
+                            </div>
+                            <div class="form-group required">
+                                <lSabel for="username"> Enter new Announcement : </lSabel>
+                                <input type="text" class="form-control text-lowercase" id="announce" 
+                                    name="announce" value="" style="background:lightgrey;" >
+                            </div>
+                            <div class="form-group required mt-4" >
+                                <lSabel for="username"> Date : </lSabel>
+                                <input type="date" id="date" name="date" >     
+                            </div>
+
+                            <div class="form-group pt-1 mt-4 mb-4">
+                                <button class="btn btn-primary btn-block" onclick="/user_panel" style=" font-size:24px;" type="submit"> Add </button>
+                            </div>
+                        </form>
+                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<br><br>
+
+    
+</body>
+ 
+
+<script>
+    function valid()
+    {
+        var username1 = document.getElementById('username').value;
+        var email1 = document.getElementById('email').value;
+        var announce1 = document.getElementById('announce').value;
+        var date1 = document.getElementById('date').value;
+        var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+
+
+        if(username1 == "")
+        {
+            alert("Enter Name..");
+            return false;
+        }
+        if(email1 == "")
+        {
+            alert("Enter email");
+            return false;
+        }
+        
+        if(announce1 == "")
+        {
+            alert("Enter announcement");
+            return false;
+        }
+        if(date1 == "")
+        {
+            alert("Select Date");
+            return false;
+        }
+
+        if(email1.match(mailformat))
+        {
+            return true;
+        }
+        else
+        {
+            alert("You have entered an invalid email address!");
+            return false;
+        }
+    }
+</script> 
+</html>
+
+{%endblock body%}

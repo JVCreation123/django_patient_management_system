@@ -1,0 +1,147 @@
+{%load static%}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<style>
+		form {
+			width: 500px;
+			margin: 0 10px 0 0px;
+			padding: 20px 30px 40px 50px ;
+			border: 2px solid black;
+			border-radius: 10px;
+			background-color: #f0f0f0;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+            background-color: #3fbbc0;
+            
+		}
+        #f1
+        {
+            padding-top: 10px;
+        }
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		input[type="text"], input[type="email"], input[type="password"],input[type="time"],input[type="date"] {
+			width: 100%;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+		}
+		input[type="submit"] {
+			background-color:orangered;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+            margin: 23px 0 0 0px;
+			font-size: 16px;
+		}
+		input[type="submit"]:hover {
+			background-color: red;
+		}
+       #ttl
+       {
+          text-align: center;
+		  padding : 10px 0 0 10px;
+          
+       }
+	</style>
+</head>
+<body >
+    <center>
+    <h1 id="ttl">Appointment Booking From</h1>
+
+    <div id="f1">
+        <form onsubmit="return valid()" action = " {% url 'book' %}" method="post">
+            {% csrf_token %}
+
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" >
+		
+		<label for="gender">Gender</label>
+		<input type="text" id="gender" name="gender">
+		
+		<label for="date">DOB :</label>
+		<input type="date" id="dob" name="dob" >
+		
+        <label for="reason">Reason to visit :</label>
+		<input type="text" id="visit" name="visit">
+
+        <label for="date">Appointment Date</label>
+		<input type="date" id="date" name="adate" min="today" max="tomorrow">
+		
+        
+        <label for="time">Time Slot:</label>
+		<input type="time" id="atime" name="atime" min=09:00 max=20:00>
+		
+		<input type="submit" value="Proceed to pay">
+	</form>
+</div>
+</center>
+
+<!-- js -->
+<script>
+	function valid()
+	{
+		var name2 = document.getElementById('name').value;
+		var gender2 = document.getElementById('gender').value;
+		var dob2 = document.getElementById('dob').value;
+		var visit2 = document.getElementById('visit').value;
+		var date2 = document.getElementById('date').value;
+		var atime2 = document.getElementById('atime').value;
+		if(name2 == "")
+		{
+			alert("Enter Name..");
+			return false;
+		}
+		if(gender2 == "")
+		{
+			alert("Enter Gender..");
+			return false;
+		}
+		if(dob2 == "")
+		{
+			alert("Select DOB..");
+			return false;
+		}
+		if(visit2 == "")
+		{
+			alert("Enter reason for visit..");
+			return false;
+		}
+		if(date2 == "")
+		{
+			alert("Select Date..");
+			return false;
+		}
+		if(atime2 == "")
+		{
+			alert("Select Time slot..");
+			return false;
+		}
+	}
+</script>
+<script>
+	
+
+    const today = new Date().toISOString().slice(0,10);
+    const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0,10);
+
+    document.getElementById("date").setAttribute("min",today);
+    document.getElementById("date").setAttribute("max",tomorrow);
+
+	
+</script>
+</body>
+</html>
+{%endblock body%}
